@@ -38,17 +38,20 @@ const Home = ({ theme, toggleTheme }) => {
   const handleAdd = async (data) => {
     const res = await api.post('/students', data);
     setStudents([...students, res.data]);
+    window.alert('Student added successfully!');
   };
 
   const handleEdit = async (data) => {
     const res = await api.put(`/students/${data._id}`, data);
     setStudents(students.map(s => (s._id === data._id ? res.data : s)));
+    window.alert('Student updated successfully!');
   };
 
   const handleDelete = async (id) => {
     if (!window.confirm('Delete this student?')) return;
     await api.delete(`/students/${id}`);
     setStudents(students.filter(s => s._id !== id));
+    window.alert('Student deleted successfully!');
   };
 
   const handleView = (id) => {
@@ -79,10 +82,15 @@ const Home = ({ theme, toggleTheme }) => {
                 <Button variant="outline-info" onClick={() => navigate('/inactive')}>
                   Inactive Students
                 </Button>
-                <Button variant="outline-dark" onClick={async () => {
-                  await api.post('/sync/all');
-                  fetchStudents();
-                }}>
+                <Button 
+                  variant="danger" 
+                  className={`sync-all-btn${theme === 'dark' ? ' theme-dark' : ''}`} 
+                  onClick={async () => {
+                    await api.post('/sync/all');
+                    fetchStudents();
+                    window.alert('All students synced successfully!');
+                  }}
+                >
                   Sync All
                 </Button>
               </div>

@@ -6,11 +6,25 @@ import InactiveStudents from './pages/InactiveStudents';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/theme.css';
 
+function setThemeClass(theme) {
+  // Remove any previous theme- classes from body
+  document.body.classList.remove('theme-light', 'theme-dark');
+  document.body.classList.add(`theme-${theme}`);
+  // Also set theme class on main Bootstrap containers for card, modal, table, btn
+  const themedClasses = ['card', 'modal-content', 'table', 'btn'];
+  themedClasses.forEach(cls => {
+    document.querySelectorAll(`.${cls}`).forEach(el => {
+      el.classList.remove('theme-light', 'theme-dark');
+      el.classList.add(`theme-${theme}`);
+    });
+  });
+}
+
 function App() {
   const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    document.body.className = `theme-${theme}`;
+    setThemeClass(theme);
   }, [theme]);
 
   const toggleTheme = () => {
