@@ -39,14 +39,6 @@ graph TD
     J -->|Mail| G
 ```
 
-### UI Previews
-
-| Home (Student Table) | Student Profile (Charts) | Inactive Students |
-|----------------------|-------------------------|------------------|
-| ![Home](docs/home.png) | ![Profile](docs/profile.png) | ![Inactive](docs/inactive.png) |
-
----
-
 ## 🏗️ Project Structure
 
 ```
