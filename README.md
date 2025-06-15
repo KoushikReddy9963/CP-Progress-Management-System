@@ -2,6 +2,8 @@
 
 A full-stack web application to manage and monitor students' Codeforces progress, built with Node.js/Express/MongoDB (backend) and React/Bootstrap (frontend).
 
+- **NOTE**: Watch project demo "YSKoushikreddy_Fullstack_project_Demo_Video.mp4" from above.
+
 ---
 
 ## 🚀 Features
@@ -126,3 +128,6 @@ npm start
 
 ## 📝 License
 MIT License
+
+---
+## Author : Y sai Koushik reddy
